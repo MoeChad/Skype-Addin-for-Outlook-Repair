@@ -15,3 +15,7 @@ This Function is designed to enable the Skype Addin in Outlook when the COM Add-
 ### Example
 ``` Set-SkypeAddin -Username ``` 
 - you can add ``` -Verbose ``` if you would like output of what the function has done.
+
+
+### Notes
+- This function does have error handling with Try/Catch for the username input
