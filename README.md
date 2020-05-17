@@ -2,7 +2,7 @@
 This Function is designed to enable the Skype Addin in Outlook when the COM Add-in menu is not functioning correctly
 
 ### Requirements
-- This function requires the Active Directory module
+- Active Directory module
 
 ### Functionality
 1. Prompts for username
