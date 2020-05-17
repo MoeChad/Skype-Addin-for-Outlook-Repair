@@ -13,12 +13,12 @@ $donotdisablekey = Test-Path HKU:\$sid\Software\Microsoft\Office\16.0\Outlook\Re
 #Creates new registry key if it doesn't not already exist to repair skype add-in issue
 if($donotdisablekey -eq $false) {
     New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
+    New-ItemProperty HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
+    New-ItemProperty HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
     }
 else {
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
+    New-ItemProperty HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
+    New-ItemProperty HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
     }
 
 #Removes HKEY USER Registry
