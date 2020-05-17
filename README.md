@@ -9,7 +9,7 @@ This Function is designed to enable the Skype Addin in Outlook when the COM Add-
 2. username is used with ``` Get-ADUser ``` to pull domain SID
 3. Domain SID is used to create the registry path to HKEY_CURRENT_USER
 4. Creates the "DoNotDisableAddinList" registry key if one does not exist
-5. Adds the "LoadBehavior" and "UCAddin.Lynx.1" registry values to the apprpriate registry keys
+5. Adds the "LoadBehavior" and "UCAddin.Lync.1" registry values to the apprpriate registry keys
 
 
 ### Example
