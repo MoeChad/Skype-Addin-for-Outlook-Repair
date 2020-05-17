@@ -1,30 +1,4 @@
 # Skype-Addin-for-Outlook-Repair
 This Script is designed to repair the Registry Keys for the Skype Addin in Outlook when the COM Add-in menu is not functioning correctly
-```
-#Prompt for username
-$ID = Read-Host "Please enter username"
 
-#Pulls domain SID from Active Directory
-$Sid = (Get-ADUser -identity $ID).SID.Value
-
-#Creates PS Drive to access HKEY USER Registry
-New-PSDrive HKU Registry HKEY_USERS
-
-#Return True/False boolean value for specified registry key
-$donotdisablekey = Test-Path HKU:\$sid\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList
-
-#Creates new registry key if it doesn't not already exist to repair skype add-in issue
-if($donotdisablekey -eq $false) {
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
-    }
-else {
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisturbAddinList -Name "UCaddin.Lync.1" -PropertyType DWord -value "00000001" -Force > $Null
-    New-Item HKU:\$sid\Software\Microsoft\Software\Microsoft\Office\16.0\Outlook\Addins\UCAddin.1 -Name "LoadBehavior" -Propertytype Dword "00000003" -Force > $null
-    }
-
-#Removes HKEY USER Registry
-Remove-PSDrive HKU
-
-```
+The repair essentially is creating 1 new registry key "DoNotDisableAddinList" and two values that effect load behavior of the skype add-in and to prevent the add-in from being disabled
