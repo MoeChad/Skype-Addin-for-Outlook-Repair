@@ -1,6 +1,6 @@
 ﻿#Requires -module ActiveDirectory
 
-function Set-DoNotDisableKey {
+function Set-SkypeAddin {
     [cmdletbinding()]
     param(
         [parameter(Mandatory)]
