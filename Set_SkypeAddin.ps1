@@ -8,7 +8,7 @@ function Set-SkypeAddin {
     )
 
     try {
-        $SID = Get-ADUser -Identity $UserName -Properties SID | Select-Object -ExpandProperty SID
+        $SID = (New-Object System.Security.Principal.NTAccount($Username)).Translate([System.Security.Principal.SecurityIdentifier]).value
         Write-Verbose -Message ('Located user {0}' -f $UserName) 
     }
     catch {
