@@ -1,9 +1,6 @@
 # Skype Add-in for Outlook Repair
 This Function is designed to enable the Skype Addin in Outlook when the COM Add-in menu is not functioning correctly
 
-### Requirements
-- Active Directory module
-
 ### Functionality
 1. Prompts for username
 2. username is used with  NTAccount class to pull SID
