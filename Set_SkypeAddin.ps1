@@ -1,5 +1,3 @@
-﻿#Requires -module ActiveDirectory
-
 function Set-SkypeAddin {
     [cmdletbinding()]
     param(
@@ -8,7 +6,7 @@ function Set-SkypeAddin {
     )
 
     try {
-        $SID = (New-Object System.Security.Principal.NTAccount($Username)).Translate([System.Security.Principal.SecurityIdentifier]).value
+        $SID = (New-Object System.Security.Principal.NTAccount($UserName)).Translate([System.Security.Principal.SecurityIdentifier]).value
         Write-Verbose -Message ('Located user {0}' -f $UserName) 
     }
     catch {
